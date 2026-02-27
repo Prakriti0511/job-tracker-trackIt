@@ -1,160 +1,70 @@
-# Job Application Tracker
+# Getting Started with Create React App
 
-A simple full-stack software system to track job applications, built using Flask, React, and a relational database.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This project was designed with a focus on clean architecture, correctness, and maintainability rather than feature complexity.
+## Available Scripts
 
----
+In the project directory, you can run:
 
-# Overview
+### `npm start`
 
-The system allows users to:
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-* Add job applications
-* View all job applications
-* Update application status
-* Delete applications
-* Search applications
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-Each job application contains:
+### `npm test`
 
-* Company name
-* Role
-* Status (Applied, Interview, Rejected, Offer)
-* Creation timestamp
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
----
+### `npm run build`
 
-# Architecture
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The project follows a clear separation of concerns:
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-Backend (Flask API)
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-* app.py → Application entry point and configuration
-* models.py → Database models and schema definitions
-* routes.py → API route definitions and request handling
+### `npm run eject`
 
-Frontend (React)
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-* App.js → UI, state management, and API integration
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Database
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-* SQLite relational database using SQLAlchemy ORM
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-Frontend communicates with backend via REST API.
+## Learn More
 
----
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-# Technical Decisions
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-Flask
+### Code Splitting
 
-Flask was chosen because it is lightweight and provides full control over system structure and request handling.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-SQLAlchemy
+### Analyzing the Bundle Size
 
-SQLAlchemy ORM was used to:
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-* Prevent direct SQL usage
-* Improve safety
-* Provide schema-based validation
+### Making a Progressive Web App
 
-React
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-React was used for:
+### Advanced Configuration
 
-* Component-based UI
-* Predictable state management
-* Clear frontend-backend separation
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-Relational Database
+### Deployment
 
-A relational database was used because job applications have a clear structured schema.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
----
+### `npm run build` fails to minify
 
-# System Design Principles
-
-This system was designed with the following principles:
-
-Clear structure
-
-Separating models, routes, and application setup improves maintainability.
-
-Simplicity
-
-The system avoids unnecessary abstractions.
-
-Correctness
-
-Database constraints prevent invalid states.
-
-Change resilience
-
-Changes to one layer do not affect unrelated layers.
-
----
-
-# AI Usage
-
-AI tools were used to assist with:
-
-* Initial project scaffolding
-* Boilerplate code generation
-* Architectural suggestions
-
-All AI-generated code was reviewed, verified, and modified before use.
-
-An AI guidance file (claude.md) was created to define rules and constraints for AI-assisted development.
-
----
-
-# Risks and Limitations
-
-This system currently does not include:
-
-* Authentication
-* Authorization
-* Production deployment configuration
-
-These were intentionally excluded to keep the system simple and focused.
-
----
-
-# Future Improvements
-
-Possible extensions include:
-
-* User authentication
-* Job notes and reminders
-* Deployment using Docker
-* Automated testing
-* Pagination for large datasets
-
----
-
-# How to Run
-
-Backend
-
-cd backend
-
-activate virtual environment
-
-python app.py
-
-Frontend
-
-cd frontend
-
-npm install
-
-npm start
-
----
-
-# Author
-
-Prakriti Sharma
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
