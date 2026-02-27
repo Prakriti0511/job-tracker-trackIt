@@ -1,70 +1,239 @@
-# Getting Started with Create React App
+# TrackIt — Job Application Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+TrackIt is a small full-stack software system designed to help users track their job applications.
+It was built with a focus on **clean architecture, correctness, and maintainability**, rather than feature complexity.
 
-## Available Scripts
+This project was developed as part of an engineering assessment.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+# Live System Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+TrackIt allows users to:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Add a job application
+* View all applications
+* Update application status
+* Delete applications
+* Search and filter applications
 
-### `npm test`
+Each job application includes:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Company name
+* Role
+* Status (Applied, Interview, Rejected, Offer)
+* Created timestamp
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Frontend
+React (JavaScript)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Backend
+Flask (Python)
 
-### `npm run eject`
+Database
+SQLite (Relational database using SQLAlchemy ORM)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Architecture
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The backend follows a modular architecture with clear separation of concerns:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+backend/
 
-## Learn More
+* app.py → Application entry point and configuration
+* models.py → Database schema and model definitions
+* routes.py → API route definitions and request handling
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+frontend/
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* src/App.js → Main UI, state management, and API integration
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# API Design
 
-### Analyzing the Bundle Size
+REST API endpoints:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+GET /jobs
+Fetch all job applications
 
-### Making a Progressive Web App
+POST /jobs
+Create new job application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+PUT /jobs/<id>
+Update job status
 
-### Advanced Configuration
+DELETE /jobs/<id>
+Delete job application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+# Key Engineering Decisions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Relational Database
 
-### `npm run build` fails to minify
+A relational database was chosen because job applications follow a structured schema and require consistency.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+SQLAlchemy ORM
+
+Used to:
+
+* Prevent raw SQL errors
+* Enforce schema constraints
+* Improve maintainability
+
+Modular Backend Structure
+
+Separating models and routes improves:
+
+* Maintainability
+* Readability
+* Change resilience
+
+React Frontend
+
+React was chosen for:
+
+* Predictable state management
+* Component-based structure
+* Clear frontend/backend separation
+
+---
+
+# System Design Principles
+
+This system was built with the following priorities:
+
+Structure
+Clear separation between application, routes, and database layers.
+
+Simplicity
+Avoid unnecessary abstractions.
+
+Correctness
+Database schema prevents invalid states.
+
+Maintainability
+Changes to one layer do not affect others.
+
+---
+
+# AI Usage
+
+AI tools were used to assist with:
+
+* Initial project scaffolding
+* Boilerplate code generation
+* Architecture suggestions
+
+To ensure safe and consistent AI-assisted development, an AI guidance file (`claude.md`) was created defining:
+
+* Coding standards
+* Architectural constraints
+* Safety rules
+
+All AI-generated code was reviewed, tested, and verified.
+
+---
+
+# Risks and Limitations
+
+This system currently does not include:
+
+* User authentication
+* Multi-user support
+* Production deployment configuration
+
+These were intentionally excluded to keep the system focused and simple.
+
+---
+
+# Future Improvements
+
+Possible extensions:
+
+* User authentication
+* Notes for each job application
+* Deployment using Docker
+* Automated testing
+* Pagination and filtering improvements
+
+---
+
+# How to Run Locally
+
+Backend
+
+cd backend
+
+Create virtual environment
+
+python -m venv venv
+
+Activate environment
+
+Windows:
+venv\Scripts\activate
+
+Install dependencies
+
+pip install flask flask_sqlalchemy flask_cors
+
+Run server
+
+python app.py
+
+Backend runs on:
+http://127.0.0.1:5000
+
+---
+
+Frontend
+
+cd frontend
+
+Install dependencies
+
+npm install
+
+Run frontend
+
+npm start
+
+Frontend runs on:
+http://localhost:3000
+
+---
+
+# Repository Structure
+
+job-tracker-trackIt/
+
+backend/
+frontend/
+README.md
+claude.md
+
+---
+
+# Author
+
+Prakriti Sharma
+
+---
+
+# Assessment Notes
+
+This project prioritizes:
+
+* Clear architecture
+* Correctness
+* Maintainability
+* Responsible AI usage
+
+over feature complexity.
